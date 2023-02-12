@@ -13,7 +13,7 @@ import { DoubleSide, VideoTexture } from 'three';
 import { motion } from "framer-motion-3d"
 import { useFrame } from '@react-three/fiber';
 import { useDispatch, useSelector } from 'react-redux';
-import { chCam, chCam2, chIntesity,chIntesity2, chPath,chPath2} from '../Slice/Theme'; 
+import { chCam, chCam2, chIntesity,chIntesity2, chPath,chPath2, chTravel} from '../Slice/Theme'; 
 import AboutPage from '../components/AboutPage';
 import { MathUtils } from 'three'
 
@@ -27,13 +27,13 @@ export function Room(props) {
   const group = useRef();
   const flag=useSelector((state=>state.counter.cam))
   const focus=useSelector((state=>state.counter.size))
+  const focus2=useSelector((state=>state.counter.travel))
   const dispatch=useDispatch()
   const [rot, setrot]=useState(false)
   const [sizeP, setSizeP]=useState(0)
   const [scaleRoom,setScaleRoom]=useState(0)
-
-  
-  
+  const [hovered, setHovered] = useState(false)
+ 
   const { nodes, materials, animations } = useGLTF(
     "/lastTimeConPersonV3.glb",
     
@@ -42,11 +42,12 @@ export function Room(props) {
   useFrame((state) => {
    // if(rot){
       const t = state.clock.getElapsedTime()
+      document.body.style.cursor = hovered ? 'pointer' : 'auto'
       //group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, Math.cos(t / 2) / 20 + 0.25, 0.1)
       //group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 4) / 20, 0.1)    
        group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 2) / 20, 0.1)
       //group.current.rotation.z = THREE.MathUtils.lerp(group.current.rotation.z, Math.sin(t / 8) / 20, 0.1)
-      if(flag){
+      if(flag || focus2){
         document.getElementById("plc").style.opacity="0";
         gsap.to(group.current.rotation,{
           x:0,
@@ -55,10 +56,11 @@ export function Room(props) {
         })
         group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, Math.sin(t / 2) / 20, 0.1)
       }
-      else{
+      if(flag===false && focus===false){
         document.getElementById("plc").style.opacity="1";
 
       }
+      
    // }
 
     if(focus==="desktop"){
@@ -69,7 +71,8 @@ export function Room(props) {
     setScaleRoom(0.9)
   }
   if(focus==="mobile"){
-    setScaleRoom(0.7)
+    
+    setScaleRoom(0.6)
   }
    
    /*  setSizeP(window.innerWidth)
@@ -118,7 +121,7 @@ export function Room(props) {
       actions.trabajando.play()
       actions.mouseAction.play()
       //setrot(true)
-      dispatch(chPath())  
+      
   
     },6791.666507720947)
     
@@ -192,15 +195,15 @@ export function Room(props) {
   VideoTextures2.encoding = THREE.sRGBEncoding;
 
   const VideoTextures3=new THREE.VideoTexture(video3);
-  VideoTextures2.minFilter=THREE.NearestFilter
-  VideoTextures2.magFilter = THREE.NearestFilter;
-  VideoTextures2.encoding = THREE.sRGBEncoding;
+  VideoTextures3.minFilter=THREE.NearestFilter
+  VideoTextures3.magFilter = THREE.NearestFilter;
+  VideoTextures3.encoding = THREE.sRGBEncoding;
 
   
 
   /* if(sizeP>980) */
   return (
-    <group ref={group} {...props} dispose={null} scale={scaleRoom} >
+    <group ref={group} {...props} dispose={null} scale={scaleRoom}>
       <group name="Scene">
         <group
           name="Armature"
@@ -331,15 +334,18 @@ export function Room(props) {
             receiveShadow
             geometry={nodes.Plane_1.geometry}
             material={new THREE.MeshBasicMaterial({
-          map: VideoTextures2
+            map: VideoTextures2
                     })}
                     onClick={()=>{
                       dispatch(chCam());
                       dispatch(chIntesity2());
                        console.log(flag)
-
                        }}
-                    
+                       
+                       onPointerOver={() => {setHovered(true)
+                       
+                       }}
+                       onPointerOut={() => setHovered(false)} 
           >
           
           </mesh>
@@ -403,7 +409,7 @@ export function Room(props) {
           >
           {
             flag ?<Html castShadow className='page-li'  scale={0.16} rotation-x={-Math.PI / 2}  position={[-0.028, -0.25, -1.63]}   receiveShadow occlude="blending" transform style={{border: "5px"}} >
-          <iframe title="embed" width={700} height={500} src="https://threejs.org/" frameBorder={0} />
+          <iframe title="embed" width={700} height={500} src="https://page-port.vercel.app/" frameBorder={0} />
         </Html>: <></>
         
      
@@ -970,6 +976,17 @@ export function Room(props) {
           position={[-1.78, 6.28, 1.63]}
           rotation={[0, 0, -Math.PI / 2]}
           scale={2.57}
+          onPointerOver={() => {setHovered(true)
+                       
+                      }}
+                      onPointerOut={() => setHovered(false)} 
+
+                      onClick={()=>{
+                        dispatch(chIntesity2());
+                        dispatch(chTravel())
+                        dispatch(chPath())  
+                        console.log("trasvel is",focus2)
+              }}
         />
         <motion.mesh
           name="base_silla"

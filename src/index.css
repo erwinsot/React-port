@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html, body, #root{
   width: 100%;
@@ -421,17 +421,17 @@ input:checked + .slider:before {
 
  .skills-list{
   position: absolute;
-  left: 50px;
+  left: -306px;
   padding-top: 0px;
   height: 40px;
-  top: 142px;
+  top: 574px;
   
 }
 
  .fa {
   padding: 0px;
   font-size: 10px;
-  width: 25px;
+  width: 56px;
   text-align: center;
   text-decoration: none;
   
@@ -448,37 +448,37 @@ input:checked + .slider:before {
 /* Facebook */
 .fa-facebook {
   /* background: #3B5998; */
-  color: white;
+  color:black;
 }
 .fa-linkedin {
   /* background: #007bb5; */
-  color: white;
-  font-size: 10px;
+  color:black;
+  font-size: 40px;
   padding: 0px;
 }
 
 .fa-google {
   /* background: #dd4b39; */
-  color: white;
-  font-size: 10px;
+  color:black;
+  font-size: 40px;
   padding: 0px;
 }
 
 .fa-instagram {
   /* background: #125688; */
-  color: white;
-  font-size: 10px;
+  color:black;
+  font-size: 40px;
 }
 
 .fa-twitter {
  /*  background: #55ACEE; */
-  color: white;
-  font-size: 10px;
+  color: black;
+  font-size: 40px;
 }
 
 .fa-github{
-  color: white;
-  font-size: 10px;
+  color: black;
+  font-size: 40px;
 }
 
 .second-view{
@@ -522,13 +522,38 @@ input:checked + .slider:before {
   opacity: 0;
   left: 22px;
 }
+.containerForm{
+  position: absolute;
+  left: 225px;
+  pointer-events: all;
+  top:102px;
+  width: 530px;
+  background-color:white;
+  border-radius: 20px;
+}
+.miform{
+  position: absolute;
+  pointer-events: all;
+}
+.con-btn{
+  position: relative;
+  width: 200px;
+  left: 324px;
+  top: -13px;
+}
+.styled-input.wide { 
+  width: 450px;
+  max-width: 100%;
+  left: 10px;
+}
 
 @media (max-width: 968px){
  
   
   .hero-main{
-    bottom: 68px;
-    left: 21px;
+    bottom: 65%;
+    left: 15%;
+    align-items: center;
   }
   .hero-second{
     top: 160px;
@@ -540,6 +565,7 @@ input:checked + .slider:before {
     font-size: 32px;
     position: relative;
     top: 28px;
+    left: 70px;
   }
   .hero-main-title2{
     font-size: 32px;
@@ -551,6 +577,60 @@ input:checked + .slider:before {
     font-size: 18px;
   }
 }
+@media (min-width: 769px) and ( max-width: 1149px ){
+ 
+  
+  .hero-main{
+    bottom: 8%;
+    left: 30%;
+    align-items: center;
+  }
+  .hero-second{
+    top: 160px;
+  }
+  .hero-wrapper{
+    width: calc(100% - 60px);
+  }
+  .hero-main-title{
+    font-size: 40px;
+    position: relative;
+    top: 28px;
+    left: 70px;
+  }
+  .hero-main-title2{
+    font-size: 40px;
+  }
+  .hero-main-description{
+    font-size: 19px;
+    top: 140px;
+  }
+  .hero-second-subheading{
+    font-size: 18px;
+  }
+  .containerForm{
+    position: absolute;
+    left: 61px;
+    pointer-events: all;
+    top:102px;
+    width: 480px;
+    background-color:white;
+    border-radius: 20px;
+   
+  }
+  .styled-input.wide { 
+    width: 398px;
+    max-width: 100%;
+    left: 10px;
+  }
+  .con-btn{
+    position: relative;
+    width: 149px;
+    left: 324px;
+    top: -13px;
+  }
+}
+
+
 
 .annotation {
   cursor: pointer;
@@ -569,3 +649,290 @@ input:checked + .slider:before {
   gap: 5px;
   
 }
+
+
+
+
+/*form//////////////////////*/
+
+
+
+
+
+/* ///// inputs /////*/
+
+input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+  font-size: 0.75em;
+  color: #999;
+  top: -5px;
+  -webkit-transition: all 0.225s ease;
+  transition: all 0.225s ease;
+}
+
+.styled-input {
+  float: left;
+  width: 293px;
+  margin: 1rem 0;
+  position: relative;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px){
+  .styled-input {
+      width:100%;
+  }
+}
+
+.styled-input label {
+  color: #999;
+  padding: 1.3rem 30px 1rem 30px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  /* pointer-events: none; */
+}
+
+
+
+input,
+textarea {
+  padding: 30px;
+  border: 0;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  color: black;
+  border-radius: 4px;
+  font-weight: 800;
+  
+}
+
+input:focus,
+textarea:focus { outline: 0; }
+
+input:focus ~ span,
+textarea:focus ~ span {
+  width: 100%;
+  -webkit-transition: all 0.075s ease;
+  transition: all 0.075s ease;
+}
+
+textarea {
+  width: 100%;
+  min-height: 15em;
+}
+
+.input-container {
+  width: 650px;
+  max-width: 100%;
+  margin: 20px auto 25px auto;
+}
+
+.submit-btn {
+  float: right;
+  padding: 7px 35px;
+  border-radius: 60px;
+  display: inline-block;
+  background-color: #4b8cfb;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06),
+            0 2px 10px 0 rgba(0,0,0,0.07);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(1px);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
+            0 1px 1px 0 rgba(0,0,0,0.09);
+}
+
+@media (max-width: 768px) {
+  .submit-btn {
+      width:100%;
+      float: none;
+      text-align:center;
+  }
+}
+
+input[type=checkbox] + label {
+color: #ccc;
+font-style: italic;
+} 
+
+input[type=checkbox]:checked + label {
+color: #f00;
+font-style: normal;
+}
+#formS{
+  visibility: hidden;
+}
+
+@media  (max-width: 920px) and ( max-height: 430px ) {
+  .hero-main{
+    
+    bottom: 30%;
+    left: 2%;
+    align-items: center;
+  }
+  .hero-second{
+    top: 160px;
+  }
+  .hero-main-title{
+    font-size: 20px;
+    top: -58px;
+    left: 33px;
+  }
+  .hero-main-title2{
+    position:absolute ;
+    top: -37px;
+    left: -5px;
+    font-size: 20px;
+    width: 195px;
+  }
+  .hero-main-description{
+    position: absolute;
+    font-size: 10px;
+    top: -6px;
+    width: 159px;
+    line-height: 13px;
+  }
+  .hero-second-subheading{
+    font-size: 18px;
+  }
+  .containerForm{
+    position: absolute;
+    left: 17px;
+    pointer-events: all;
+    top:28px;
+    width: 345px;
+    background-color:white;
+    border-radius: 20px;
+    height: 320px;
+  }
+  .miform{
+    position: absolute;
+    pointer-events: all;
+  }
+  .con-btn{
+    position: relative;
+    width: 108px;
+    left: 225px;
+    top: 56px;
+  }
+  .styled-input.wide { 
+    width: 313px;
+    max-width: 100%;
+    left: 8px;
+    top: -40px;
+    height: 23px;
+  }
+  .styled-input {
+    float: left;
+    width: 293px;
+    margin: 0.5rem 0;
+    position: relative;
+    border-radius: 4px;
+  }
+  .idlike{
+    position: relative;
+    top: -16px;
+  }
+  input,
+textarea {
+  padding: 6px;
+  border: 0;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  background-color: #f0f0f0;
+  color: black;
+  border-radius: 4px;
+  font-weight: 800;
+  
+}
+textarea {
+  width: 100%;
+  min-height: 11em;
+}
+.styled-input label {
+  color: #999;
+  padding: 0px 0px 1px 5px;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  /* pointer-events: none; */
+}
+.skills-list{
+  position: absolute;
+  left: -218px;
+  padding-top: 0px;
+  height: 30px;
+  top: 127px;
+  
+}
+.fa {
+  padding: 0px;
+  font-size: 10px;
+  width: 33px;
+  text-align: center;
+  text-decoration: none;
+  
+}
+
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  /* background: #3B5998; */
+  color:black;
+}
+.fa-linkedin {
+  /* background: #007bb5; */
+  color:black;
+  font-size: 25px;
+  padding: 0px;
+}
+
+.fa-google {
+  /* background: #dd4b39; */
+  color:black;
+  font-size: 25px;
+  padding: 0px;
+}
+
+.fa-instagram {
+  /* background: #125688; */
+  color:black;
+  font-size: 25px;
+}
+
+.fa-twitter {
+ /*  background: #55ACEE; */
+  color: black;
+  font-size: 25px;
+}
+
+.fa-github{
+  color: black;
+  font-size: 25px;
+}
+  .contacme{
+    font-size: 1.2em;
+  }
+  
+
+ }

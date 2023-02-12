@@ -9,6 +9,7 @@ import GSAP from "gsap";
 import { Room2 } from "../model/Room2";
 import { Watch } from "../model/Watch";
 import { Room3 } from "../model/Room3";
+import { Room4 } from "../model/Room4";
 
 
 const World=()=>{
@@ -17,6 +18,7 @@ const World=()=>{
 
     const light=useSelector((state=>state.counter.value))
     const path=useSelector((state=>state.counter.path))
+    const room4=useSelector((state=>state.counter.room))
     //console.log(light)
 
   
@@ -37,7 +39,7 @@ const World=()=>{
            {/*  <Tower/> */}
            <Room/>
            {
-            path? <Room3/>:<></>
+            path? <><Room3/> {room4 ?<Room4/>:<></> } </>:<></>
            }
            {/* <Room2/> */}
            {/* <Room3/> */}

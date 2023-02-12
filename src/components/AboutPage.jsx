@@ -96,24 +96,29 @@ function AboutPage() {
     <div className='Aboutles' id='Aboutles' >
        <div className="head-skills nav">
             <ul className='buttons'>
+
               <button className="about-text-about" onClick={()=>{
-              document.getElementById("cl-about").style.opacity = "1";
-              document.getElementById("cl2-about").style.opacity = "0";
-              document.getElementById("cl3-about").style.opacity = "0";
+              document.getElementById("cl-about").style.visibility = "visible";
+              document.getElementById("cl2-about").style.visibility = "hidden";
+              document.getElementById("cl3-about").style.visibility = "hidden";
               setPage(false)
+              console.log("abius op")
               console.log(page)
 
-              }}> About</button>
+              }}> Aboutes</button>
+
               <button className="about-text" onClick={()=>{
-              document.getElementById("cl2-about").style.opacity = "1";
-              document.getElementById("cl-about").style.opacity = "0";
-              document.getElementById("cl3-about").style.opacity = "0";
+              document.getElementById("cl2-about").style.visibility = "visible";
+              document.getElementById("cl-about").style.visibility = "hidden";
+              document.getElementById("cl3-about").style.visibility = "hidden";
               setPage(true)
+              console.log("skill prese")
               }}> Skills</button>
+
               <button className="about-text" onClick={()=>{
-              document.getElementById("cl2-about").style.opacity = "0";
-              document.getElementById("cl-about").style.opacity = "0";
-              document.getElementById("cl3-about").style.opacity = "1";
+              document.getElementById("cl2-about").style.visibility = "hidden";
+              document.getElementById("cl-about").style.visibility = "hidden";
+              document.getElementById("cl3-about").style.visibility = "visible";
               setPage(true)
               }} > Experience</button>
              </ul>
